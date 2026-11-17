@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Onde está meu ônibus?</title>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1>Onde está meu ônibus?</h1>
+  </header>
+
+  <main>
+    <!-- 1. Buscar a linha -->
+    <form id="form-busca">
+      <input id="busca" type="text" placeholder="Número ou nome da linha (ex: 8000 ou Lapa)">
+      <button type="submit">Buscar</button>
+    </form>
+
+    <p id="status"></p>
+    <ul id="lista-linhas"></ul>
+
+    <!-- 2. Mapa com ônibus e paradas -->
+    <div id="mapa"></div>
+    <p id="info"></p>
+
+    <!-- 3. Alerta de chegada (aparece ao tocar numa parada) -->
+    <section id="painel-alerta" hidden>
+      <h2 id="texto-parada"></h2>
+      <p id="texto-previsao"></p>
+      <label>
+        Avisar quando faltar
+        <select id="minutos">
+          <option value="3">3 min</option>
+          <option value="5" selected>5 min</option>
+          <option value="10">10 min</option>
+        </select>
+      </label>
+      <button id="botao-alerta">Avisar-me</button>
+    </section>
+  </main>
+
+  <footer>
+    Dados: SPTrans (API Olho Vivo) | Mapa: © OpenStreetMap
+  </footer>
+
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>

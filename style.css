@@ -1,0 +1,95 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #f4f4f4;
+  color: #222;
+}
+
+header {
+  background: #1565c0;
+  color: white;
+  padding: 12px 16px;
+}
+
+h1 {
+  margin: 0;
+  font-size: 1.3rem;
+}
+
+main {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 12px;
+}
+
+#form-busca {
+  display: flex;
+  gap: 8px;
+}
+
+input, select, button {
+  font-size: 1rem;
+  padding: 10px;
+}
+
+#busca {
+  flex: 1;
+}
+
+button {
+  background: #1565c0;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+#lista-linhas {
+  list-style: none;
+  padding: 0;
+}
+
+#lista-linhas li {
+  margin-bottom: 6px;
+}
+
+#lista-linhas button {
+  width: 100%;
+  text-align: left;
+  background: white;
+  color: #222;
+  border: 1px solid #ccc;
+}
+
+#mapa {
+  height: 55vh;
+  margin-top: 12px;
+  border-radius: 4px;
+}
+
+.icone-onibus {
+  font-size: 20px;
+}
+
+#painel-alerta {
+  background: white;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  padding: 12px;
+  margin-top: 12px;
+}
+
+#painel-alerta h2 {
+  margin: 0 0 8px;
+  font-size: 1.1rem;
+}
+
+footer {
+  text-align: center;
+  font-size: 0.85rem;
+  padding: 16px;
+}
