@@ -3,47 +3,87 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Onde está meu ônibus?</title>
+  <meta name="theme-color" content="#111a20">
+  <meta name="description" content="Acompanhe seu ônibus em São Paulo e descubra a hora de sair para o ponto.">
+  <title>partiu! — Sua hora de sair</title>
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <header>
-    <h1>Onde está meu ônibus?</h1>
+  <header class="cabecalho">
+    <a class="marca" href="./" aria-label="Partiu! Início">partiu<span>!</span></a>
+    <span class="cidade">São Paulo <span aria-hidden="true">↗</span></span>
   </header>
 
   <main>
-    <!-- 1. Buscar a linha -->
-    <form id="form-busca">
-      <input id="busca" type="text" placeholder="Número ou nome da linha (ex: 8000 ou Lapa)">
-      <button type="submit">Buscar</button>
-    </form>
+    <section class="introducao">
+      <p class="etiqueta">SEU TEMPO VALE MUITO.</p>
+      <h1>Menos espera.<br><span>Mais partiu!</span></h1>
+      <p>Seu ônibus no mapa. A hora de sair na mão.</p>
+    </section>
 
-    <p id="status"></p>
-    <ul id="lista-linhas"></ul>
+    <section class="cartao busca-linha" aria-label="Pesquisar linhas de ônibus">
+      <form id="form-busca">
+        <div class="campo-busca">
+          <label for="busca">Qual é a sua linha?</label>
+          <input id="busca" type="search" placeholder="Número ou nome. Ex.: 8000 ou Lapa" required>
+        </div>
+        <button type="submit">Buscar linha <span aria-hidden="true">↗</span></button>
+      </form>
+      <p id="status" role="status">Busque uma linha para começar.</p>
+      <ul id="lista-linhas" aria-label="Linhas encontradas"></ul>
+    </section>
 
-    <!-- 2. Mapa com ônibus e paradas -->
-    <div id="mapa"></div>
-    <p id="info"></p>
+    <div class="area-viagem">
+      <section class="cartao cartao-mapa" aria-labelledby="titulo-mapa">
+        <div class="topo-mapa">
+          <h2 id="titulo-mapa">Seu ônibus, por aqui.</h2>
+          <span class="atualizacao">A cada 15 s</span>
+        </div>
+        <div id="mapa" aria-label="Mapa de ônibus e paradas de São Paulo"></div>
+        <div class="rodape-mapa">
+          <span class="legenda"><i aria-hidden="true"></i> Parada <span aria-hidden="true">🚌</span> Ônibus · ♿ Acessível</span>
+          <p id="info" role="status">Selecione uma linha e toque em uma parada.</p>
+        </div>
+      </section>
 
-    <!-- 3. Alerta de chegada (aparece ao tocar numa parada) -->
-    <section id="painel-alerta" hidden>
-      <h2 id="texto-parada"></h2>
-      <p id="texto-previsao"></p>
-      <label>
-        Avisar quando faltar
-        <select id="minutos">
-          <option value="3">3 min</option>
-          <option value="5" selected>5 min</option>
-          <option value="10">10 min</option>
-        </select>
-      </label>
-      <button id="botao-alerta">Avisar-me</button>
+      <section class="cartao planejador" aria-labelledby="titulo-planejador">
+        <p class="etiqueta">HORA DE SAIR</p>
+        <h2 id="titulo-planejador">Vamos nessa?</h2>
+        <div id="sem-parada">
+          <span class="simbolo-parada" aria-hidden="true">↗</span>
+          <h3>Seu próximo passo</h3>
+          <p>Escolha sua linha e toque em um círculo no mapa para selecionar a parada.</p>
+          <p class="dica">A gente faz a conta. Você aproveita o tempo.</p>
+        </div>
+
+        <!-- O cálculo aparece depois que uma parada é selecionada. -->
+        <div id="painel-partiu" hidden>
+          <p class="rotulo">PARADA SELECIONADA</p>
+          <h3 id="texto-parada"></h3>
+          <p id="texto-previsao" role="status"></p>
+          <label for="minutos-caminhada">Quanto tempo você leva até o ponto?</label>
+          <div class="campo-caminhada">
+            <input id="minutos-caminhada" type="number" min="0" step="1" value="5" inputmode="numeric" aria-describedby="ajuda-caminhada">
+            <span>min a pé</span>
+          </div>
+          <p id="ajuda-caminhada" class="dica">Informe os minutos da sua caminhada.</p>
+          <div id="resultado" class="resultado" role="status">Selecione uma parada para calcular.</div>
+          <p class="seguranca">Já reservamos 2 minutos de segurança.</p>
+        </div>
+      </section>
+    </div>
+
+    <section class="como-funciona" aria-label="Como funciona">
+      <p><span>01</span> Busque sua linha</p>
+      <p><span>02</span> Escolha sua parada</p>
+      <p><span>03</span> Veja a hora de sair</p>
     </section>
   </main>
 
   <footer>
-    Dados: SPTrans (API Olho Vivo) | Mapa: © OpenStreetMap
+    <span class="marca-rodape">partiu!</span>
+    <span>Dados: <a href="https://www.sptrans.com.br/desenvolvedores/">SPTrans · API Olho Vivo</a> &nbsp;·&nbsp; Mapa: © OpenStreetMap / Leaflet</span>
   </footer>
 
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
