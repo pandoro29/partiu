@@ -26,16 +26,5 @@ HTML, CSS e JavaScript, mapa com Leaflet. Uma função em `api/olhovivo.js` faz 
 
 O `.env` está no `.gitignore`. O frontend só chama `/api/olhovivo`; o token fica no servidor e nunca deve ser colocado no HTML ou no `script.js`.
 
-## Entrega
-1. Preencha `participantes.txt` com os nomes reais e a parte feita por cada integrante (grupo de até 3 pessoas). O modelo também tem espaço para o RM.
-2. Envie a versão final dos arquivos para o [repositório no GitHub](https://github.com/pandoro29/CadeMeuOnibus), incluindo este README e o arquivo de participantes.
-3. Na Vercel, importe esse repositório em **Add New → Project**, se ainda não estiver vinculado. Este projeto utiliza HTML/CSS/JavaScript e uma função em `api/olhovivo.js`.
-4. Configure a variável de ambiente `SPTRANS_TOKEN` no projeto da Vercel para Production, com o token autorizado da SPTrans. Para testar versões Preview, configure-a também nesse ambiente. O `.env` local não é enviado ao GitHub.
-5. Faça o deploy. Se alterar a variável depois de publicar, faça um novo deploy para aplicar a configuração. Consulte a [documentação de variáveis de ambiente da Vercel](https://vercel.com/docs/environment-variables).
-6. Abra a URL publicada e teste a busca, a seleção de parada, o mapa, a previsão e o cálculo de saída, também no celular. Confira que o professor consegue acessar o link sem precisar entrar na sua conta.
-7. Entregue os dois links: **repositório do GitHub** e **aplicativo funcionando na Vercel**.
-
-Cada integrante deve saber explicar qualquer parte do código, conforme o enunciado. Os créditos da SPTrans já aparecem no rodapé do app.
-
 ## Créditos
 Dados: SPTrans (API Olho Vivo). Mapa: OpenStreetMap e Leaflet.
